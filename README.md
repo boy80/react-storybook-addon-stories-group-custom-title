@@ -12,43 +12,44 @@ Install the following npm module:
 npm i --save @kadira/react-storybook-addon-info
 ```
 
-Then set the addon in the place you configure storybook like this:
+
+
+
 
 ```js
-import React from 'react';
-import { configure, setAddon } from '@kadira/storybook';
-import infoAddon from '@kadira/react-storybook-addon-info';
 
-setAddon(infoAddon);
+import { configure,setAddon } from '@kadira/storybook';
+import addStoriesGroup from 'UTILITY_PATH'
 
-configure(function () {
-  ...
-}, module);
+setAddon(addStoriesGroup)
+
+function loadStories() {
+  require('../src/components/stories/MyComp');
+  // require as many stories as you need.
+}
+
+configure(loadStories, module);
 ```
 
 Then create your stories with the `.addWithInfo` API.
 
 ```js
-import React from 'react';
-import Button from './Button';
-import { storiesOf, action } from '@kadira/storybook';
+import { action , storiesOf} from '@kadira/storybook';
+import MyComp from '../MyComp';
 
-storiesOf('Button')
-  .addWithInfo(
-    'simple usage',
-    `
-      This is the basic usage with the button with providing a label to show the text.
-    `,
-    () => (
-      <div>
-        <Button label="The Button" onClick={action('onClick')}/>
-        <br />
-        <p>
-          Click the "?" mark at top-right to view the info.
-        </p>
-      </div>
-    ),
-  );
+const stories = [
+  {
+    name:"with text" ,
+    props: {text:"super error props", resetErrorMessage: action('clicked!') }
+  },
+  {
+    name:"with very long text",
+    props: {text:"super error this is a reaaaaaalllly long error, probably more than one line of text, even if you have a huge monitor, text text", resetErrorMessage: action('clicked!') }
+  }
+]
+
+storiesOf('MyComp', module)
+  .addStoriesGroup(MyComp, stories)
 ```
 
 > Have a look at [this example](example/story.js) stories to learn more about the `addWithInfo` API.
