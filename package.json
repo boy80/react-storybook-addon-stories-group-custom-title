@@ -1,6 +1,6 @@
 {
   "name": "react-storybook-addon-add-stories-group",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A React Storybook addon to show add groups of stories and show them all toghether.",
   "repository": {
     "type": "git",
