@@ -3,7 +3,7 @@ import React from 'react';
 
 function addStoriesGroup(Comp, storiesList, stories) {
   stories
-    .add('All Toghether',
+    .add('All Together',
       () => <div>
         {storiesList.map(story => (
           <div key={story.name} style={{ marginTop: '25px' }} >
