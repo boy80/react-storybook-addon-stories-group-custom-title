@@ -1,10 +1,10 @@
 {
-  "name": "@kadira/react-storybook-addon-info",
-  "version": "3.0.0",
-  "description": "A React Storybook addon to show additional information for your stories.",
+  "name": "react-storybook-addon-add-stories-group",
+  "version": "0.0.1",
+  "description": "A React Storybook addon to show add groups of stories and show them all toghether.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kadirahq/react-storybook-addon-info.git"
+    "url": "https://github.com/jurgob/react-storybook-addon-add-stories-group.git"
   },
   "license": "MIT",
   "scripts": {

@@ -3,49 +3,88 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Story = undefined;
-
-var _extends2 = require('babel-runtime/helpers/extends');
-
-var _extends3 = _interopRequireDefault(_extends2);
 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Story2 = require('./components/Story');
-
-var _Story3 = _interopRequireDefault(_Story2);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Story = exports.Story = _Story3.default;
+function _addStoriesGroup(Comp, storiesList, stories) {
+  stories.add('All Toghether', function () {
+    return _react2.default.createElement(
+      'div',
+      null,
+      storiesList.map(function (story) {
+        return _react2.default.createElement(
+          'div',
+          { key: story.name, style: { marginTop: "25px" } },
+          _react2.default.createElement(
+            'h1',
+            { style: { marginBottom: "25px" } },
+            story.name
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(Comp, story.props)
+          )
+        );
+      })
+    );
+  });
+  storiesList.forEach(function (story) {
+    return stories.add(story.name, function () {
+      return _react2.default.createElement(Comp, story.props);
+    });
+  });
 
-var defaultOptions = {
-  inline: false,
-  header: true,
-  source: true
-};
+  return stories;
+}
 
 exports.default = {
-  addWithInfo: function addWithInfo(storyName, info, storyFn, _options) {
-    var options = (0, _extends3.default)({}, defaultOptions, _options);
-
-    this.add(storyName, function (context) {
-      var props = {
-        info: info,
-        context: context,
-        showInline: Boolean(options.inline),
-        showHeader: Boolean(options.header),
-        showSource: Boolean(options.source),
-        propTables: options.propTables
-      };
-
-      return _react2.default.createElement(
-        Story,
-        props,
-        storyFn(context)
-      );
-    });
+  addStoriesGroup: function addStoriesGroup(Comp, storiesList) {
+    _addStoriesGroup(Comp, storiesList, this);
   }
 };
+
+/**
+
+.storybook/config.js
+
+  import { configure,setAddon } from '@kadira/storybook';
+  import addStoriesGroup from 'UTILITY_PATH'
+
+  setAddon(addStoriesGroup)
+
+  function loadStories() {
+    require('../src/components/stories/MyComp');
+    // require as many stories as you need.
+  }
+
+  configure(loadStories, module);
+
+
+
+
+/src/components/stories/MyComp
+
+  import { action , storiesOf} from '@kadira/storybook';
+  import MyComp from '../MyComp';
+
+  const stories = [
+    {
+      name:"with text" ,
+      props: {text:"super error props", resetErrorMessage: action('clicked!') }
+    },
+    {
+      name:"with very long text",
+      props: {text:"super error this is a reaaaaaalllly long error, probably more than one line of text, even if you have a huge monitor, text text", resetErrorMessage: action('clicked!') }
+    }
+  ]
+
+  storiesOf('MyComp', module)
+    .addStoriesGroup(MyComp, stories)
+
+
+*/
