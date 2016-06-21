@@ -9,7 +9,7 @@ A React Storybook addon to show additional information for your stories.
 Install the following npm module:
 
 ```sh
-npm i --save @kadira/react-storybook-addon-info
+npm i --save-dev react-storybook-addon-add-stories-group
 ```
 
 
@@ -19,7 +19,7 @@ npm i --save @kadira/react-storybook-addon-info
 ```js
 
 import { configure,setAddon } from '@kadira/storybook';
-import addStoriesGroup from 'UTILITY_PATH'
+import addStoriesGroup from 'react-storybook-addon-add-stories-group'
 
 setAddon(addStoriesGroup)
 
