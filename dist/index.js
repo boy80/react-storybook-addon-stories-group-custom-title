@@ -18,11 +18,13 @@ function _addStoriesGroup(Comp, storiesList, stories) {
       storiesList.map(function (story) {
         return _react2.default.createElement(
           'div',
-          { key: story.name, style: { marginTop: "25px" } },
+          { key: story.name, style: { marginTop: '25px' } },
           _react2.default.createElement(
             'h1',
-            { style: { marginBottom: "25px" } },
-            story.name
+            { style: { marginBottom: '25px' } },
+            ' ',
+            story.name,
+            ' '
           ),
           _react2.default.createElement(
             'div',
@@ -38,7 +40,6 @@ function _addStoriesGroup(Comp, storiesList, stories) {
       return _react2.default.createElement(Comp, story.props);
     });
   });
-
   return stories;
 }
 
@@ -65,8 +66,6 @@ exports.default = {
   configure(loadStories, module);
 
 
-
-
 /src/components/stories/MyComp
 
   import { action , storiesOf} from '@kadira/storybook';
@@ -79,7 +78,12 @@ exports.default = {
     },
     {
       name:"with very long text",
-      props: {text:"super error this is a reaaaaaalllly long error, probably more than one line of text, even if you have a huge monitor, text text", resetErrorMessage: action('clicked!') }
+      props: {
+        text:"super error this is a reaaaaaalllly long error, probably more"+
+          " than one line of text, even if you have a huge monitor, text text"
+          ,
+        resetErrorMessage: action('clicked!')
+      }
     }
   ]
 

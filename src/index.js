@@ -1,33 +1,31 @@
 import React from 'react';
 
 
-function addStoriesGroup(Comp, storiesList, stories){
+function addStoriesGroup(Comp, storiesList, stories) {
   stories
     .add('All Toghether',
       () => <div>
         {storiesList.map(story => (
-          <div key={story.name} style={{marginTop:"25px"}}>
-            <h1 style={{marginBottom:"25px"}} >{story.name}</h1>
+          <div key={story.name} style={{ marginTop: '25px' }} >
+            <h1 style={{ marginBottom: '25px' }} > { story.name } </h1>
             <div>
               <Comp {...story.props} />
             </div>
           </div>
         ))}
       </div>
-    )
+    );
   storiesList
-    .forEach((story) => stories.add(story.name, () => <Comp {...story.props} /> )  )
-
-  return stories
-
+    .forEach((story) => stories.add(story.name, () => <Comp {...story.props} />));
+  return stories;
 }
 
 
 export default {
   addStoriesGroup(Comp, storiesList) {
     addStoriesGroup(Comp, storiesList, this);
-  }
-}
+  },
+};
 
 
 /**
@@ -47,8 +45,6 @@ export default {
   configure(loadStories, module);
 
 
-
-
 /src/components/stories/MyComp
 
   import { action , storiesOf} from '@kadira/storybook';
@@ -61,7 +57,12 @@ export default {
     },
     {
       name:"with very long text",
-      props: {text:"super error this is a reaaaaaalllly long error, probably more than one line of text, even if you have a huge monitor, text text", resetErrorMessage: action('clicked!') }
+      props: {
+        text:"super error this is a reaaaaaalllly long error, probably more"+
+          " than one line of text, even if you have a huge monitor, text text"
+          ,
+        resetErrorMessage: action('clicked!')
+      }
     }
   ]
 
