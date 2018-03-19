@@ -1,9 +1,9 @@
 import React from 'react';
 
 
-function addStoriesGroup(Comp, storiesList, stories) {
+function addStoriesGroup(Comp, storiesList, combinedStoriesTitle, stories) {
   stories
-    .add('All Together',
+    .add(combinedStoriesTitle,
       () => <div>
         {storiesList.map(story => (
           <div key={story.name} style={{ marginTop: '25px' }} >
@@ -20,10 +20,10 @@ function addStoriesGroup(Comp, storiesList, stories) {
   return stories;
 }
 
-
+git
 export default {
-  addStoriesGroup(Comp, storiesList) {
-    addStoriesGroup(Comp, storiesList, this);
+  addStoriesGroup(Comp, storiesList, combinedStoriesTitle = 'All Together') {
+    addStoriesGroup(Comp, storiesList, combinedStoriesTitle, this);
   },
 };
 

@@ -10,8 +10,8 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _addStoriesGroup(Comp, storiesList, stories) {
-  stories.add('All Toghether', function () {
+function _addStoriesGroup(Comp, storiesList, combinedStoriesTitle, stories) {
+  stories.add(combinedStoriesTitle, function () {
     return _react2.default.createElement(
       'div',
       null,
@@ -45,7 +45,9 @@ function _addStoriesGroup(Comp, storiesList, stories) {
 
 exports.default = {
   addStoriesGroup: function addStoriesGroup(Comp, storiesList) {
-    _addStoriesGroup(Comp, storiesList, this);
+    var combinedStoriesTitle = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'All Together';
+
+    _addStoriesGroup(Comp, storiesList, combinedStoriesTitle, this);
   }
 };
 

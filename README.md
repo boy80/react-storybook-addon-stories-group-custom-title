@@ -50,6 +50,15 @@ const stories = [
 
 storiesOf('MyComp', module)
   .addStoriesGroup(MyComp, stories)
+  
+```
+
+Add a custom title for the side panel, default if left blank is 'All Together'
+
+```js
+
+storiesOf('MyComp', module)
+  .addStoriesGroup(MyComp, stories, 'My Comp - all states')
 ```
 
 > Have a look at [this example](example/story.js) stories to learn more about the `addWithInfo` API.
