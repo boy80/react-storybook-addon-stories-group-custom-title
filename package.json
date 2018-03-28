@@ -1,10 +1,10 @@
 {
-  "name": "react-storybook-addon-add-stories-group",
+  "name": "react-storybook-addon-stories-group-custom-title",
   "version": "0.1.0",
-  "description": "A React Storybook addon to show add groups of stories and show them all toghether.",
+  "description": "A React Storybook addon to show add groups of stories and show them all together with a custom title.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jurgob/react-storybook-addon-add-stories-group.git"
+    "url": "https://github.com/boy80/react-storybook-addon-add-stories-group.git"
   },
   "license": "MIT",
   "scripts": {

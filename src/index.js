@@ -20,7 +20,6 @@ function addStoriesGroup(Comp, storiesList, combinedStoriesTitle, stories) {
   return stories;
 }
 
-git
 export default {
   addStoriesGroup(Comp, storiesList, combinedStoriesTitle = 'All Together') {
     addStoriesGroup(Comp, storiesList, combinedStoriesTitle, this);
